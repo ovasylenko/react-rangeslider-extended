@@ -199,9 +199,9 @@ class Slider extends Component {
   	const node = findDOMNode(this.refs.slider);
   	const coordinateStyle = constants.orientation[orientation].coordinate;
   	const directionStyle = constants.orientation[orientation].direction;
-  	const coordinate = !e.touches
+  	const coordinate = !e.changedTouches
 			? e['client' + capitalize(coordinateStyle)]
-			: e.touches[0]['client' + capitalize(coordinateStyle)];
+			: e.changedTouches[0]['client' + capitalize(coordinateStyle)];
   	const direction = node.getBoundingClientRect()[directionStyle];
 
   	pos = coordinate - direction - grab;
